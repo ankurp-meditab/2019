@@ -1,0 +1,29 @@
+start session
+set debug true
+scc set connect property localprojpath "."
+scc set connect property logfile "create_exe.log"
+scc set connect property logappend false
+scc set connect property deletetempfiles "true"
+scc connect offline
+scc set target "examples\appexamp\pfc examples.pbt" importonly  
+scc refresh target incremental
+scc refresh target "3pass"
+build library "examples\appexamp\appexamp.pbl" "" pbd
+build library "examples\appexmdw\appexmdw.pbl" "" pbd
+build library "examples\appexmfe\appexmfe.pbl" "" pbd
+build library "examples\exmmain\exmmain.pbl" "" pbd
+build library "examples\exmutil\exmutil.pbl" "" pbd
+build library "examples\exmwnsrv\exmwnsrv.pbl" "" pbd
+build library "pfeapsrv\pfeapsrv.pbl" "" pbd
+build library "pfedwsrv\pfedwsrv.pbl" "" pbd
+build library "pfemain\pfemain.pbl" "" pbd
+build library "pfeutil\pfeutil.pbl" "" pbd
+build library "pfewnsrv\pfewnsrv.pbl" "" pbd
+build library "pfcapsrv\pfcapsrv.pbl" "" pbd
+build library "pfcdwsrv\pfcdwsrv.pbl" "" pbd
+build library "pfcmain\pfcmain.pbl" "" pbd
+build library "pfcutil\pfcutil.pbl" "" pbd
+build library "pfcwnsrv\pfcwnsrv.pbl" "" pbd
+build executable "appexamp.exe" "" "examples\examples.pbr" "yyyyyyyyyyyyyyyy" newvstylecontrols
+scc close
+end session
